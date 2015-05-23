@@ -1,7 +1,6 @@
 var table = function(t) {
   t.increments();
   t.string('name');
-  t.integer('join_movies_id');
   t.timestamps();
 }
 

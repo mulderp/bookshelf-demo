@@ -1,13 +1,13 @@
 var table = function(t) {
-  t.increments();
-  t.integer('movie_id');
-  t.integer('genre_id');
+  t.increments('id').primary();
+  t.integer('genre_id').references('genres.id');
+  t.integer('movie_id').references('movies.id');
   t.timestamps();
 }
 
 exports.up = function(knex, Promise) {
   return knex.schema
-            .createTable('join_movies_genres', table)
+            .createTable('genres_movies', table)
             .then(function () {
                console.log('Join Table Movies_Genres table is created!');
              });
@@ -16,7 +16,7 @@ exports.up = function(knex, Promise) {
 
 exports.down = function(knex, Promise) {
   return knex.schema
-            .dropTable('join_movies_genres', table)
+            .dropTable('genres_movies', table)
             .then(function () {
                console.log('Join Table Movies_Genres table is dropped!');
              });

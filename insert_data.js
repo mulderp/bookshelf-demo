@@ -6,7 +6,7 @@ var DB = require('knex')({client: 'sqlite3',
 });
 
 DB('movies')
-   .insert({title: "The Artist", year: 2010, join_genres_id: 1})
+   .insert({title: "The Artist", year: 2010})
    .then(function() { console.log("added"); })
    .catch(function(err) { console.log(err) });
 
@@ -15,8 +15,18 @@ DB('genres')
    .then(function() { console.log("added"); })
    .catch(function(err) { console.log(err) });
 
-DB('join_movies_genres')
+DB('genres')
+   .insert({name: "Drama"})
+   .then(function() { console.log("added"); })
+   .catch(function(err) { console.log(err) });
+
+DB('genres_movies')
    .insert({movie_id: 1, genre_id: 1})
+   .then(function() { console.log("added"); })
+   .catch(function(err) { console.log(err) });
+
+DB('genres_movies')
+   .insert({movie_id: 1, genre_id: 2})
    .then(function() { console.log("added"); })
    .catch(function(err) { console.log(err) })
    .finally(function() { DB.destroy() });

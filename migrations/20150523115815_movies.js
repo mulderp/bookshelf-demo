@@ -3,7 +3,6 @@ var table = function (table) {
   table.increments();
   table.string('title');
   table.integer('year');
-  table.integer('join_genres_id');
   table.timestamps();
 };
 
