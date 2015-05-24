@@ -7,7 +7,7 @@ var table = function(t) {
 
 exports.up = function(knex, Promise) {
   return knex.schema
-            .createTable('join_movies_genres', table)
+            .createTable('movies_genres', table)
             .then(function () {
                console.log('Join Table Movies_Genres table is created!');
              });
@@ -16,7 +16,7 @@ exports.up = function(knex, Promise) {
 
 exports.down = function(knex, Promise) {
   return knex.schema
-            .dropTable('join_movies_genres', table)
+            .dropTable('movies_genres', table)
             .then(function () {
                console.log('Join Table Movies_Genres table is dropped!');
              });

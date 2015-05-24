@@ -1,15 +1,13 @@
-// this is our schema example:
 var table = function (table) {
-  table.increments();
+  table.increments().primary();
   table.string('title');
   table.integer('year');
-  table.integer('join_genres_id');
+  table.integer('director_id').references('directors.id');
   table.timestamps();
 };
 
 exports.up = function(knex, Promise) {
- return knex.schema
-            .createTable('movies', table)
+ return knex.schema.createTable('movies', table)
             .then(function () {
               console.log('Movies table is created!');
              });

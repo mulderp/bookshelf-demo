@@ -16,8 +16,7 @@ var Movie = bookshelf.Model.extend({
     tableName: 'movies',
 
     genres: function() {
-      return this.belongsToMany(Genre, 'join_movies_genres', 'movie_id', 'genre_id');
-      // return this.belongsToMany(Genre).through(JoinMovieGenre);
+      return this.belongsToMany(Genre, 'movies_genres', 'movie_id', 'genre_id');
     }
 });
 
@@ -27,7 +26,6 @@ var Genre = bookshelf.Model.extend({
 
 new Movie({title: 'The Artist'}).fetch({withRelated: ['genres'], debug: true}).then(function(m) {
   console.log(m.toJSON());
-  //console.log(m.genres())
 })
 .finally(function() {
   knex.destroy();
