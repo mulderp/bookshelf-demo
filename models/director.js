@@ -1,12 +1,12 @@
-require('../config');
+var baseModel = require('./base');
 
 require('./movie');
 
-var Director = bookshelf.Model.extend({
+var Director = baseModel.Model.extend({
   tableName: 'directors',
   movies: function() {
     return this.hasMany('Movie');
   }
 });
 
-module.exports = bookshelf.model('Director', Director);
+module.exports = baseModel.model('Director', Director);
