@@ -13,6 +13,7 @@
     "finalhandler": "^0.3.6",
     "knex": "^0.8.6",
     "router": "^1.1.0",
-    "sqlite3": "^3.0.8"
+    "sqlite3": "^3.0.8",
+    "underscore": "^1.8.3"
   }
 }

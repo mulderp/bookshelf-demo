@@ -1,7 +1,7 @@
-require('../config');
+var base = require('./base');
 
-var Genre = bookshelf.Model.extend({
+var Genre = base.Model.extend({
     tableName: 'genres'
 });
 
-module.exports = bookshelf.model('Genre', Genre);
+module.exports = base.model('Genre', Genre);
